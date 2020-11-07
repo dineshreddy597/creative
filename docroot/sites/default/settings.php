@@ -89,6 +89,17 @@
  * @endcode
  */
 $databases = [];
+$databases['default']['default'] = [
+    'database' => 'drupal8',
+    'username' => 'drupal8',
+    'password' => 'drupal8',
+    'host' => 'database',
+    'port' => '3306',
+    'driver' => 'mysql',
+ 
+    'prefix' => '',
+    'collation' => 'utf8mb4_general_ci',
+  ];
 
 /**
  * Customizing database settings.
@@ -796,6 +807,9 @@ $settings['migrate_node_migrate_type_classic'] = FALSE;
 #   include $app_root . '/' . $site_path . '/settings.local.php';
 # }
 require DRUPAL_ROOT . "/../vendor/acquia/blt/settings/blt.settings.php";
+error_reporting(E_ALL);
+ini_set('display_errors', TRUE);
+ini_set('display_startup_errors', TRUE);
 /**
  * IMPORTANT.
  *
@@ -804,3 +818,4 @@ require DRUPAL_ROOT . "/../vendor/acquia/blt/settings/blt.settings.php";
  *
  * @link https://docs.acquia.com/blt/
  */
+ $config['system.logging']['error_level'] = 'verbose';
